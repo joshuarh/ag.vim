@@ -75,13 +75,15 @@ function! ag#Ag(cmd, args)
     nnoremap <silent> <buffer> v  <C-w><CR><C-w>H<C-W>b<C-W>J<C-W>t
 
     nnoremap <silent> <buffer> gv <C-w><CR><C-w>H<C-w>b<C-w>J80<C-w>-5<C-w>+
+    nnoremap <silent> <buffer> gv <C-w><CR><C-w>H<C-w>b<C-w>J80<C-w>-9<C-w>+
     " Interpretation:
     " ^W<cr> Jump to quickfix under cursor (this is a default quickfix window binding)
     " ^WH    Slam the new window to the left wall
     " ^Wb    Go to the bottom-right window, which is the quickfix window
     " ^WJ    Slam it to the floor
     " 80^W-  Decrease this window by (at most) 80 lines.
-    " 5^W+   Increase the quickfix window by 5 lines, so you can see what you're doing
+    " 9^w+  Undecrease the quickfix window by 9, which is the default
+    "  quickfix window height
 
     " TODO: j  Now you probably want to do something on the next line
 
