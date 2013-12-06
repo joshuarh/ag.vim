@@ -32,9 +32,9 @@ function! ag#Ag(cmd, args)
   " Format, used to manage column jump
   if a:cmd =~# '-g$'
     let g:agformat="%f"
-  else
+  elseif !exists("g:format")
     let g:agformat="%f:%l:%c:%m"
-  end
+  endif
 
   let grepprg_bak=&grepprg
   let grepformat_bak=&grepformat
