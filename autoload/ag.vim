@@ -64,17 +64,17 @@ function! ag#Ag(cmd, args)
   redraw!
 
   if l:apply_mappings
-    nnoremap <silent> <buffer> e  <CR><C-w><C-w>:cclose<CR>
-    nnoremap <silent> <buffer> go <CR><C-w><C-w>
-    nnoremap <silent> <buffer> h  <C-W><CR><C-w>K
-    nnoremap <silent> <buffer> H  <C-W><CR><C-w>K<C-w>b
-    nnoremap <silent> <buffer> o  <CR>
+    nnoremap <silent> <buffer> e  <CR>zv<C-w><C-w>:cclose<CR>
+    nnoremap <silent> <buffer> go <CR>zv<C-w><C-w>
+    nnoremap <silent> <buffer> h  <C-W><CR>zv<C-w>K
+    nnoremap <silent> <buffer> H  <C-W><CR>zv<C-w>K<C-w>b
+    nnoremap <silent> <buffer> o  <CR>zv
     nnoremap <silent> <buffer> q  :cclose<CR>
-    nnoremap <silent> <buffer> t  <C-w><CR><C-w>T
-    nnoremap <silent> <buffer> T  <C-w><CR><C-w>TgT<C-W><C-W>
-    nnoremap <silent> <buffer> v  <C-w><CR><C-w>H<C-W>b<C-W>J<C-W>t
+    nnoremap <silent> <buffer> t  <C-w><CR>zv<C-w>T
+    nnoremap <silent> <buffer> T  <C-w><CR>zv<C-w>TgT<C-W><C-W>
+    nnoremap <silent> <buffer> v  <C-w><CR>zv<C-w>H<C-W>b<C-W>J<C-W>t
 
-    nnoremap <silent> <buffer> gv <C-w><CR><C-w>H<C-w>b<C-w>J80<C-w>-5<C-w>+
+    nnoremap <silent> <buffer> gv <C-w><CR>zv<C-w>H<C-w>b<C-w>J80<C-w>-5<C-w>+
     " Interpretation:
     " ^W<cr> Jump to quickfix under cursor (this is a default quickfix window binding)
     " ^WH    Slam the new window to the left wall
