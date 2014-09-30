@@ -62,6 +62,9 @@ function! ag#Ag(cmd, args)
     let &grepformat=grepformat_bak
   endtry
 
+  "FIXME: test the following
+  "https://github.com/rking/ag.vim/issues/58
+  " if a:cmd =~# '^:\?l'
   if a:cmd =~# '^l'
     let l:match_count = len(getloclist(winnr()))
   else
