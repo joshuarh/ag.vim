@@ -113,6 +113,11 @@ the mappings are not applied (see |g:ag_apply_qmappings| and
 |g:ag_apply_lmappings| for more info. Default 1. Example: >
   let g:ag_mapping_message=0
 <
+                                                       *g:ag_use_wildignore*
+Whether or not to ignore patterns specified in the 'wildignore' option.
+Default 1. Example: >
+  let g:ag_use_wildignore=0
+<
 
 ==============================================================================
 MAPPINGS                                                        *ag-mappings*
