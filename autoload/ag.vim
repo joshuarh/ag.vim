@@ -25,6 +25,10 @@ if !exists("g:ag_mapping_message")
   let g:ag_mapping_message=1
 endif
 
+if !exists("g:ag_use_wildignore")
+  let g:ag_use_wildignore=1
+endif
+
 function! ag#Ag(cmd, args)
   let l:ag_executable = get(split(g:agprg, " "), 0)
 
@@ -40,6 +44,11 @@ function! ag#Ag(cmd, args)
   else
     let l:grepargs = a:args . join(a:000, ' ')
   end
+
+  " Possibly add --ignore flags for patterns set in the 'wildignore' option
+  if g:ag_use_wildignore
+    let g:agprg = ag#AddWildignoreToAgCommand(g:agprg)
+  endif
 
   " Format, used to manage column jump
   if a:cmd =~# '-g$'
@@ -121,6 +130,16 @@ function! ag#Ag(cmd, args)
   else
     echom 'No matches for "'.a:args.'"'
   endif
+endfunction
+
+function! ag#AddWildignoreToAgCommand(cli_arguments)
+  let l:new_arguments = copy(a:cli_arguments)
+
+  for ignore_me in split(&wildignore, ",")
+    let l:new_arguments = printf("%s --ignore \"%s\"", l:new_arguments, l:ignore_me)
+  endfor
+
+  return l:new_arguments
 endfunction
 
 function! ag#AgFromSearch(cmd, args)
