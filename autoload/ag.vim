@@ -1,20 +1,23 @@
 " NOTE: You must, of course, install ag / the_silver_searcher
 
-" FIXME: Delete deprecated options below on or after 15-7 (6 months from when they were changed) {{{
+" FIXME: Delete deprecated options below on or after 2016-2 (6 months from when the deprecation warnings were added) {{{
 
 if exists("g:agprg")
   let g:ag_prg = g:agprg
+  echo "Warning: g:agprg is deprecated and will be removed in 2016, please switch to g:ag_prg"
 endif
 
 if exists("g:aghighlight")
   let g:ag_highlight = g:aghighlight
+  echo "Warning: g:aghighlight is deprecated and will be removed in 2016, please switch to g:ag_highlight"
 endif
 
 if exists("g:agformat")
   let g:ag_format = g:agformat
+  echo "Warning: g:agformat is deprecated and will be removed in 2016, please switch to g:ag_format"
 endif
 
-" }}} FIXME: Delete the deprecated options above on or after 15-7 (6 months from when they were changed)
+" }}} FIXME: Delete deprecated options below on or after 2016-2 (6 months from when the deprecation warnings were added)
 
 " Location of the ag utility
 if !exists("g:ag_prg")
